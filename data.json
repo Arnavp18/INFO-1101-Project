@@ -6,6 +6,7 @@
       "name": "Facebook",
       "company": "Meta",
       "tracking": true,
+      "manualScore": 10,
       "categories": [
         "Contact Info",
         "Identifiers",
@@ -24,6 +25,7 @@
       "name": "Instagram",
       "company": "Meta",
       "tracking": true,
+      "manualScore": 10,
       "categories": [
         "Contact Info",
         "Identifiers",
@@ -42,6 +44,7 @@
       "name": "TikTok",
       "company": "ByteDance",
       "tracking": true,
+      "manualScore": 8,
       "categories": [
         "Contact Info",
         "Identifiers",
@@ -58,6 +61,7 @@
       "name": "Snapchat",
       "company": "Snap",
       "tracking": true,
+      "manualScore": 8,
       "categories": [
         "Contact Info",
         "Identifiers",
@@ -74,6 +78,7 @@
       "name": "Reddit",
       "company": "Reddit",
       "tracking": true,
+      "manualScore": 7,
       "categories": [
         "Contact Info",
         "Identifiers",
@@ -89,6 +94,7 @@
       "name": "YouTube",
       "company": "Google",
       "tracking": true,
+      "manualScore": 8,
       "categories": [
         "Contact Info",
         "Identifiers",
@@ -105,6 +111,7 @@
       "name": "LinkedIn",
       "company": "Microsoft",
       "tracking": true,
+      "manualScore": 8,
       "categories": [
         "Contact Info",
         "Identifiers",
@@ -121,6 +128,7 @@
       "name": "Pinterest",
       "company": "Pinterest",
       "tracking": true,
+      "manualScore": 8,
       "categories": [
         "Contact Info",
         "Identifiers",
@@ -137,6 +145,7 @@
       "name": "Discord",
       "company": "Discord",
       "tracking": false,
+      "manualScore": 7,
       "categories": [
         "Contact Info",
         "Identifiers",
@@ -152,6 +161,7 @@
       "name": "X",
       "company": "X Corp.",
       "tracking": true,
+      "manualScore": 9,
       "categories": [
         "Contact Info",
         "Identifiers",
