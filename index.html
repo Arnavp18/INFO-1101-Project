@@ -1,77 +1,1167 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>What Are the Drawbacks to Staying Connected?</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An interactive comparison of data categories disclosed by major social media apps.">
+  <title>What Are the Drawbacks to Staying Connected?</title>
+
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #687086;
+      --paper: #f6f2ea;
+      --surface: #ffffff;
+      --dark: #111827;
+      --dark-soft: #1f2937;
+      --accent: #ec6b4f;
+      --accent-dark: #bd4630;
+      --line: #d9dde7;
+      --success: #b9f3d0;
+      --warning: #ffd9ce;
+      --shadow: 0 16px 42px rgba(17, 24, 39, 0.10);
+      --radius: 20px;
+      --max-width: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .hero {
+      min-height: 78vh;
+      color: white;
+      background:
+        radial-gradient(circle at 82% 16%, rgba(236, 107, 79, 0.40), transparent 28rem),
+        linear-gradient(135deg, #0b1220 0%, #172033 58%, #27334e 100%);
+      padding: 0 24px 72px;
+    }
+
+    nav {
+      width: min(100%, var(--max-width));
+      margin: 0 auto;
+      padding: 22px 0;
+      display: flex;
+      justify-content: flex-end;
+      gap: 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    nav a {
+      color: rgba(255, 255, 255, 0.86);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      color: white;
+    }
+
+    .hero-inner {
+      width: min(100%, var(--max-width));
+      margin: 0 auto;
+      padding-top: clamp(70px, 10vw, 140px);
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: #ffc4b7;
+      font-size: 0.78rem;
+      font-weight: 850;
+      letter-spacing: 0.14em;
+    }
+
+    h1 {
+      max-width: 900px;
+      margin: 0;
+      font-size: clamp(3rem, 7vw, 6.8rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    .lead {
+      max-width: 730px;
+      margin: 28px 0 34px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: clamp(1.08rem, 2vw, 1.34rem);
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 21px;
+      border-radius: 999px;
+      color: white;
+      background: var(--accent);
+      text-decoration: none;
+      font-weight: 850;
+      transition: transform 160ms ease, background 160ms ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+    }
+
+    .section {
+      padding: 88px 24px;
+    }
+
+    .section > * {
+      width: min(100%, var(--max-width));
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .section-heading span {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border: 1px solid currentColor;
+      border-radius: 50%;
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+    }
+
+    h3 {
+      margin-top: 0;
+      line-height: 1.25;
+    }
+
+    .grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card,
+    .finding,
+    .reflection {
+      background: var(--surface);
+      border: 1px solid rgba(23, 32, 51, 0.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .card {
+      padding: 30px;
+    }
+
+    .card p,
+    .finding p,
+    .reflection p {
+      color: var(--muted);
+    }
+
+    .quote {
+      margin-top: 26px;
+      padding: 30px;
+      border-left: 6px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      background: #fff7f3;
+      font-size: clamp(1.08rem, 2vw, 1.35rem);
+      font-weight: 750;
+    }
+
+    .dark {
+      color: white;
+      background: var(--dark);
+    }
+
+    .note {
+      color: #c5ccda;
+      margin-top: -12px;
+      margin-bottom: 26px;
+    }
+
+    .data-notice {
+      display: none;
+      margin-bottom: 24px;
+      padding: 13px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      color: #d8deea;
+      background: rgba(255, 255, 255, 0.06);
+      font-size: 0.9rem;
+    }
+
+    .data-notice.show {
+      display: block;
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 16px;
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .controls label {
+      display: grid;
+      gap: 7px;
+      color: #d7ddea;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    input,
+    select {
+      width: 100%;
+      min-height: 46px;
+      padding: 10px 12px;
+      border: 1px solid #4c586f;
+      border-radius: 11px;
+      color: white;
+      background: var(--dark-soft);
+      font: inherit;
+    }
+
+    input::placeholder {
+      color: #98a2b6;
+    }
+
+    input:focus,
+    select:focus {
+      outline: 3px solid rgba(236, 107, 79, 0.35);
+      border-color: var(--accent);
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .summary-card {
+      padding: 18px;
+      border-radius: 15px;
+      background: var(--dark-soft);
+      border: 1px solid rgba(255, 255, 255, 0.10);
+    }
+
+    .summary-card strong {
+      display: block;
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      line-height: 1;
+    }
+
+    .summary-card span {
+      display: block;
+      margin-top: 8px;
+      color: #b9c1d1;
+      font-size: 0.82rem;
+    }
+
+    .app-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .app-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 310px;
+      padding: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 18px;
+      background: var(--dark-soft);
+      transition: transform 150ms ease, border-color 150ms ease;
+    }
+
+    .app-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(236, 107, 79, 0.7);
+    }
+
+    .app-card-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .app-card h3 {
+      margin-bottom: 4px;
+      font-size: 1.25rem;
+    }
+
+    .company {
+      margin: 0;
+      color: #aeb7c8;
+      font-size: 0.88rem;
+    }
+
+    .count {
+      display: grid;
+      flex: 0 0 auto;
+      place-items: center;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      color: #1c2537;
+      background: #ffd0c5;
+      font-weight: 900;
+    }
+
+    .tracking {
+      display: inline-flex;
+      align-self: flex-start;
+      margin: 18px 0 15px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: #171d2b;
+      background: var(--warning);
+      font-size: 0.76rem;
+      font-weight: 850;
+    }
+
+    .tracking.no {
+      background: var(--success);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 20px;
+    }
+
+    .tag {
+      padding: 5px 8px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 8px;
+      color: #d6dce8;
+      background: rgba(255, 255, 255, 0.05);
+      font-size: 0.75rem;
+    }
+
+    .source-link {
+      margin-top: auto;
+      color: #ffb5a4;
+      font-size: 0.84rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .source-link:hover,
+    .source-link:focus-visible {
+      text-decoration: underline;
+    }
+
+    .empty {
+      grid-column: 1 / -1;
+      padding: 38px;
+      text-align: center;
+      border: 1px dashed #4f5c74;
+      border-radius: 16px;
+      color: #c7cfdd;
+    }
+
+    .legend {
+      margin-top: 22px;
+      padding: 15px 0 0;
+      color: #aeb7c8;
+      font-size: 0.87rem;
+    }
+
+    .finding {
+      padding: 26px;
+    }
+
+    .finding b {
+      display: inline-grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      margin-bottom: 18px;
+      border-radius: 12px;
+      color: white;
+      background: var(--accent);
+    }
+
+    .reflection {
+      margin-top: 24px;
+      padding: 30px;
+    }
+
+    .sources {
+      background: #ebe7df;
+    }
+
+    .sources ul {
+      padding-left: 22px;
+    }
+
+    .sources li {
+      margin: 10px 0;
+    }
+
+    #appSources {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid #cbc5ba;
+    }
+
+    #appSources h3 {
+      margin-bottom: 10px;
+    }
+
+    #appSources ol {
+      columns: 2;
+      padding-left: 22px;
+    }
+
+    #appSources li {
+      break-inside: avoid;
+    }
+
+    footer {
+      padding: 26px 24px;
+      color: #cdd4e1;
+      background: #090f1a;
+      text-align: center;
+      font-weight: 750;
+    }
+
+    @media (max-width: 900px) {
+      .app-grid,
+      .grid.three {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .summary {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .controls {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      nav {
+        justify-content: flex-start;
+        gap: 14px;
+        overflow-x: auto;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .section {
+        padding: 64px 18px;
+      }
+
+      .grid.two,
+      .grid.three,
+      .app-grid,
+      .summary {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: clamp(2.7rem, 15vw, 4.3rem);
+      }
+
+      #appSources ol {
+        columns: 1;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<header class="hero">
-  <nav><a href="#background">Background</a><a href="#compare">Compare</a><a href="#findings">Findings</a><a href="#sources">Sources</a></nav>
-  <div class="hero-inner">
-    <p class="eyebrow">FINAL RESEARCH PROJECT INFO 1101</p>
-    <h1>What Are the Drawbacks to Staying Connected?</h1>
-    <p class="lead">Every post, message and even content watched can create data. How much data do these major social media apps say they collect?</p>
-    <a class="button" href="#compare">Explore data</a>
-  </div>
-</header>
+  <header class="hero">
+    <nav aria-label="Main navigation">
+      <a href="#background">Background</a>
+      <a href="#compare">Compare</a>
+      <a href="#findings">Findings</a>
+      <a href="#sources">Sources</a>
+    </nav>
 
-<main>
-<section id="background" class="section">
-  <div class="section-heading"><span>01</span><h2>Background</h2></div>
-  <div class="grid two">
-    <article class="card">
-      <h3>What qualifies as personal data?</h3>
-      <p>Personal data can include obvious things like your email addresses, current location, photos saved to your phone, your contacts and even less visible information like device identifiers, search history, and app usage.</p>
-    </article>
-    <article class="card">
-      <h3>Why collect do they it?</h3>
-      <p>Platforms use data to operate certain features, recommend personalized content, show relevant advertising, measure engagement, and improve their products. That same data can also create privacy risks when the companies collect large amounts and do not fully disclose the reasons why.</p>
-    </article>
-  </div>
-  <aside class="quote">Being connected doesn't only describe people; it can also refer to the connections between accounts, devices, advertisers, and behavioral profiles.</aside>
-</section>
+    <div class="hero-inner">
+      <p class="eyebrow">FINAL RESEARCH PROJECT · INFO 1101</p>
+      <h1>What Are the Drawbacks to Staying Connected?</h1>
+      <p class="lead">
+        Every post, message, and piece of content watched can create data.
+        How many types of data do major social media apps say they collect?
+      </p>
+      <a class="button" href="#compare">Explore the data</a>
+    </div>
+  </header>
 
-<section id="compare" class="section dark">
-  <div class="section-heading"><span>02</span><h2>Interactive Comparison</h2></div>
-  <p class="note">This is a comparison of the amount of different types of data collected by a few big apps.</p>
-  <div class="controls">
-    <label>Search <input id="search" placeholder="App or company"></label>
-    <label>Category <select id="category"><option value="">All categories</option></select></label>
-    <label>Sort <select id="sort"><option value="score">Most data catagories collected</option><option value="name">Alphabetical</option><option value="count">Most categories</option></select></label>
-  </div>
-  <div id="summary" class="summary"></div>
-  <div id="cards" class="app-grid"></div>
-  <div class="legend"><strong>Catagories collected:</strong> these catagories include location, contacts, financial information, sensitive information, search history, and tracking.</div>
-</section>
+  <main>
+    <section id="background" class="section">
+      <div class="section-heading">
+        <span>01</span>
+        <h2>Background</h2>
+      </div>
 
-<section id="findings" class="section">
-  <div class="section-heading"><span>03</span><h2>Findings & Reflection</h2></div>
-  <div class="grid three">
-    <article class="finding"><b>1</b><h3>Collection is broad</h3><p>Most platforms disclose multiple categories, not just the information users actively post.</p></article>
-    <article class="finding"><b>2</b><h3>Labels need context</h3><p>A label says data may be handled; it does not reveal frequency, retention, or every downstream use.</p></article>
-    <article class="finding"><b>3</b><h3>Privacy is a trade-off</h3><p>Convenience and personalization can be useful, but users should decide whether each permission is necessary.</p></article>
-  </div>
-  <div class="reflection">
-    <h3>My reflection</h3>
-    <p>The most surprising finding was how many categories extend beyond what a person intentionally posts. Identifiers, diagnostics, usage patterns, and location can reveal behavior even when a user shares very little publicly. I also learned that privacy labels are useful but incomplete because they are developer-reported and can change by region, age, and feature.</p>
-    <p>My conclusion is that the drawback to staying connected is not one single piece of data. It is the combination of many small signals into a detailed profile. Users can reduce exposure by reviewing permissions, turning off unnecessary location access, avoiding contact syncing when it is not needed, limiting ad tracking, and periodically deleting unused accounts.</p>
-  </div>
-</section>
+      <div class="grid two">
+        <article class="card">
+          <h3>What qualifies as personal data?</h3>
+          <p>
+            Personal data can include obvious information such as email addresses,
+            current location, photos, and contacts. It can also include less visible
+            information such as device identifiers, search history, diagnostics,
+            and app usage.
+          </p>
+        </article>
 
-<section id="sources" class="section sources">
-  <div class="section-heading"><span>04</span><h2>Sources & Method</h2></div>
-  <p><strong>Method:</strong> I recorded broad data categories disclosed in the U.S. Apple App Store privacy labels for ten apps, then compared the number and sensitivity of categories. App-store disclosures may change and are not independently verified by Apple.</p>
-  <ul>
-    <li><a href="https://www.ftc.gov/reports/look-behind-screens-examining-data-practices-social-media-video-streaming-services">Federal Trade Commission — A Look Behind the Screens (2024)</a></li>
-    <li><a href="https://www.pewresearch.org/internet/2023/10/18/how-americans-view-data-privacy/">Pew Research Center — How Americans View Data Privacy (2023)</a></li>
-    <li><a href="https://www.apple.com/privacy/labels/">Apple — App Privacy Labels</a></li>
-    <li><a href="https://support.google.com/googleplay/android-developer/answer/10787469">Google Play — Data Safety guidance</a></li>
-  </ul>
-  <div id="appSources"></div>
-</section>
-</main>
-<footer>By Arnav Pathak</footer>
-<script src="script.js"></script>
-</body></html>
+        <article class="card">
+          <h3>Why do platforms collect it?</h3>
+          <p>
+            Platforms use data to operate features, recommend personalized content,
+            show relevant advertising, measure engagement, and improve their
+            products. Collecting large amounts of data can also create privacy risks,
+            especially when users do not fully understand how that data may be used.
+          </p>
+        </article>
+      </div>
+
+      <aside class="quote">
+        Being connected does not only describe people. It can also refer to the
+        connections among accounts, devices, advertisers, and behavioral profiles.
+      </aside>
+    </section>
+
+    <section id="compare" class="section dark">
+      <div class="section-heading">
+        <span>02</span>
+        <h2>Interactive Comparison</h2>
+      </div>
+
+      <p class="note">
+        Compare the number and types of data categories disclosed by selected major apps.
+      </p>
+
+      <div id="dataNotice" class="data-notice" role="status"></div>
+
+      <div class="controls">
+        <label>
+          Search
+          <input id="search" type="search" placeholder="App or company" autocomplete="off">
+        </label>
+
+        <label>
+          Category
+          <select id="category">
+            <option value="">All categories</option>
+          </select>
+        </label>
+
+        <label>
+          Sort
+          <select id="sort">
+            <option value="score">Highest privacy-impact score</option>
+            <option value="count">Most categories</option>
+            <option value="name">Alphabetical</option>
+          </select>
+        </label>
+      </div>
+
+      <div id="summary" class="summary" aria-live="polite"></div>
+      <div id="cards" class="app-grid" aria-live="polite"></div>
+
+      <div class="legend">
+        <strong>Categories collected:</strong> Broad categories can include location,
+        contacts, financial information, sensitive information, search history,
+        identifiers, diagnostics, and usage data. A disclosure does not show how
+        frequently the data is collected or how long it is retained.
+      </div>
+    </section>
+
+    <section id="findings" class="section">
+      <div class="section-heading">
+        <span>03</span>
+        <h2>Findings &amp; Reflection</h2>
+      </div>
+
+      <div class="grid three">
+        <article class="finding">
+          <b>1</b>
+          <h3>Collection is broad</h3>
+          <p>
+            Most platforms disclose multiple categories, not only the information
+            users actively post.
+          </p>
+        </article>
+
+        <article class="finding">
+          <b>2</b>
+          <h3>Labels need context</h3>
+          <p>
+            A label says data may be handled; it does not reveal collection frequency,
+            retention time, or every downstream use.
+          </p>
+        </article>
+
+        <article class="finding">
+          <b>3</b>
+          <h3>Privacy is a trade-off</h3>
+          <p>
+            Convenience and personalization can be useful, but users should decide
+            whether each permission is necessary.
+          </p>
+        </article>
+      </div>
+
+      <div class="reflection">
+        <h3>My reflection</h3>
+        <p>
+          The most surprising finding was how many categories extend beyond what a
+          person intentionally posts. Identifiers, diagnostics, usage patterns, and
+          location can reveal behavior even when a user shares very little publicly.
+          I also learned that privacy labels are useful but incomplete because they
+          are developer-reported and can change by region, age, and feature.
+        </p>
+        <p>
+          My conclusion is that the drawback to staying connected is not one single
+          piece of data. It is the combination of many small signals into a detailed
+          profile. Users can reduce exposure by reviewing permissions, turning off
+          unnecessary location access, avoiding contact syncing when it is not needed,
+          limiting ad tracking, and periodically deleting unused accounts.
+        </p>
+      </div>
+    </section>
+
+    <section id="sources" class="section sources">
+      <div class="section-heading">
+        <span>04</span>
+        <h2>Sources &amp; Method</h2>
+      </div>
+
+      <p>
+        <strong>Method:</strong> I recorded broad data categories disclosed in the
+        U.S. Apple App Store privacy labels for selected apps, then compared the
+        number and sensitivity of those categories. App-store disclosures may change
+        and are not independently verified by Apple.
+      </p>
+
+      <ul>
+        <li>
+          <a href="https://www.ftc.gov/reports/look-behind-screens-examining-data-practices-social-media-video-streaming-services"
+             target="_blank" rel="noopener noreferrer">
+            Federal Trade Commission — A Look Behind the Screens (2024)
+          </a>
+        </li>
+        <li>
+          <a href="https://www.pewresearch.org/internet/2023/10/18/how-americans-view-data-privacy/"
+             target="_blank" rel="noopener noreferrer">
+            Pew Research Center — How Americans View Data Privacy (2023)
+          </a>
+        </li>
+        <li>
+          <a href="https://www.apple.com/privacy/labels/"
+             target="_blank" rel="noopener noreferrer">
+            Apple — App Privacy Labels
+          </a>
+        </li>
+        <li>
+          <a href="https://support.google.com/googleplay/android-developer/answer/10787469"
+             target="_blank" rel="noopener noreferrer">
+            Google Play — Data Safety guidance
+          </a>
+        </li>
+      </ul>
+
+      <div id="appSources"></div>
+    </section>
+  </main>
+
+  <footer>By Arnav Pathak</footer>
+
+  <script>
+    "use strict";
+
+    /*
+      This page contains built-in data, so it works when opened directly as:
+      file:///.../index.html
+
+      When the page is served through http:// or https:// and data.json exists
+      beside index.html, the external file will automatically replace this
+      built-in fallback data.
+    */
+
+    const EMBEDDED_DATA = {
+      updated: "July 30, 2026",
+      method_note:
+        "Built-in classroom research snapshot based on developer-reported Apple App Store privacy labels. Verify the labels before final submission because they may change.",
+      apps: [
+        {
+          name: "Facebook",
+          company: "Meta",
+          tracking: true,
+          categories: [
+            "Contact Info", "Identifiers", "Location", "Purchases",
+            "Financial Info", "User Content", "Usage Data", "Diagnostics",
+            "Contacts", "Sensitive Info"
+          ],
+          source: "https://apps.apple.com/us/app/facebook/id284882215"
+        },
+        {
+          name: "Instagram",
+          company: "Meta",
+          tracking: true,
+          categories: [
+            "Contact Info", "Identifiers", "Location", "Purchases",
+            "Financial Info", "User Content", "Usage Data", "Diagnostics",
+            "Contacts", "Sensitive Info"
+          ],
+          source: "https://apps.apple.com/us/app/instagram/id389801252"
+        },
+        {
+          name: "TikTok",
+          company: "TikTok Ltd.",
+          tracking: true,
+          categories: [
+            "Contact Info", "Identifiers", "Location", "Purchases",
+            "Financial Info", "User Content", "Browsing History",
+            "Search History", "Usage Data", "Diagnostics", "Contacts",
+            "Sensitive Info"
+          ],
+          source: "https://apps.apple.com/us/app/tiktok-videos-shop-live/id835599320"
+        },
+        {
+          name: "YouTube",
+          company: "Google",
+          tracking: true,
+          categories: [
+            "Contact Info", "Identifiers", "Location", "Purchases",
+            "Financial Info", "User Content", "Browsing History",
+            "Search History", "Usage Data", "Diagnostics", "Contacts"
+          ],
+          source: "https://apps.apple.com/us/app/youtube-watch-listen-stream/id544007664"
+        },
+        {
+          name: "Snapchat",
+          company: "Snap Inc.",
+          tracking: true,
+          categories: [
+            "Contact Info", "Identifiers", "Location", "Purchases",
+            "User Content", "Usage Data", "Diagnostics", "Contacts"
+          ],
+          source: "https://apps.apple.com/us/app/snapchat/id447188370"
+        },
+        {
+          name: "X",
+          company: "X Corp.",
+          tracking: true,
+          categories: [
+            "Contact Info", "Identifiers", "Location", "Purchases",
+            "User Content", "Browsing History", "Usage Data",
+            "Diagnostics", "Contacts"
+          ],
+          source: "https://apps.apple.com/us/app/x/id333903271"
+        },
+        {
+          name: "Reddit",
+          company: "Reddit, Inc.",
+          tracking: true,
+          categories: [
+            "Contact Info", "Identifiers", "Location", "Purchases",
+            "User Content", "Browsing History", "Search History",
+            "Usage Data", "Diagnostics"
+          ],
+          source: "https://apps.apple.com/us/app/reddit/id1064216828"
+        },
+        {
+          name: "LinkedIn",
+          company: "LinkedIn Corporation",
+          tracking: true,
+          categories: [
+            "Contact Info", "Identifiers", "Location", "Purchases",
+            "Financial Info", "User Content", "Search History",
+            "Usage Data", "Diagnostics", "Contacts", "Sensitive Info"
+          ],
+          source: "https://apps.apple.com/us/app/linkedin-network-job-finder/id288429040"
+        },
+        {
+          name: "Pinterest",
+          company: "Pinterest",
+          tracking: true,
+          categories: [
+            "Contact Info", "Identifiers", "Location", "Purchases",
+            "Financial Info", "User Content", "Browsing History",
+            "Search History", "Usage Data", "Diagnostics"
+          ],
+          source: "https://apps.apple.com/us/app/pinterest/id429047995"
+        },
+        {
+          name: "Discord",
+          company: "Discord, Inc.",
+          tracking: true,
+          categories: [
+            "Contact Info", "Identifiers", "Purchases", "Financial Info",
+            "User Content", "Usage Data", "Diagnostics", "Contacts"
+          ],
+          source: "https://apps.apple.com/us/app/discord-talk-play-hang-out/id985746746"
+        }
+      ]
+    };
+
+    const state = {
+      data: EMBEDDED_DATA,
+      search: "",
+      category: "",
+      sort: "score"
+    };
+
+    const sensitiveWeights = {
+      "Sensitive Info": 4,
+      "Financial Info": 3,
+      "Location": 3,
+      "Contacts": 2,
+      "Search History": 2,
+      "Browsing History": 2,
+      "Identifiers": 2
+    };
+
+    const elements = {
+      search: document.getElementById("search"),
+      category: document.getElementById("category"),
+      sort: document.getElementById("sort"),
+      summary: document.getElementById("summary"),
+      cards: document.getElementById("cards"),
+      appSources: document.getElementById("appSources"),
+      dataNotice: document.getElementById("dataNotice")
+    };
+
+    function validData(value) {
+      return Boolean(
+        value &&
+        Array.isArray(value.apps) &&
+        value.apps.every(app =>
+          app &&
+          typeof app.name === "string" &&
+          typeof app.company === "string" &&
+          Array.isArray(app.categories)
+        )
+      );
+    }
+
+    function privacyScore(app) {
+      const categoryScore = app.categories.reduce(
+        (total, category) => total + (sensitiveWeights[category] || 1),
+        0
+      );
+      return categoryScore + (app.tracking ? 3 : 0);
+    }
+
+    function allCategories() {
+      return [...new Set(
+        state.data.apps.flatMap(app => app.categories)
+      )].sort((a, b) => a.localeCompare(b));
+    }
+
+    function filteredApps() {
+      const term = state.search.trim().toLowerCase();
+
+      const filtered = state.data.apps.filter(app => {
+        const matchesText =
+          !term ||
+          app.name.toLowerCase().includes(term) ||
+          app.company.toLowerCase().includes(term);
+
+        const matchesCategory =
+          !state.category || app.categories.includes(state.category);
+
+        return matchesText && matchesCategory;
+      });
+
+      return filtered.sort((a, b) => {
+        if (state.sort === "name") {
+          return a.name.localeCompare(b.name);
+        }
+
+        if (state.sort === "count") {
+          return b.categories.length - a.categories.length ||
+                 a.name.localeCompare(b.name);
+        }
+
+        return privacyScore(b) - privacyScore(a) ||
+               b.categories.length - a.categories.length ||
+               a.name.localeCompare(b.name);
+      });
+    }
+
+    function makeSummaryCard(value, label) {
+      const card = document.createElement("div");
+      card.className = "summary-card";
+
+      const strong = document.createElement("strong");
+      strong.textContent = value;
+
+      const span = document.createElement("span");
+      span.textContent = label;
+
+      card.append(strong, span);
+      return card;
+    }
+
+    function renderSummary(apps) {
+      elements.summary.replaceChildren();
+
+      const totalCategories = new Set(
+        apps.flatMap(app => app.categories)
+      ).size;
+
+      const average = apps.length
+        ? (apps.reduce((sum, app) => sum + app.categories.length, 0) / apps.length).toFixed(1)
+        : "0.0";
+
+      const trackingCount = apps.filter(app => app.tracking).length;
+
+      elements.summary.append(
+        makeSummaryCard(String(apps.length), "Apps shown"),
+        makeSummaryCard(String(totalCategories), "Unique categories"),
+        makeSummaryCard(average, "Average categories per app"),
+        makeSummaryCard(String(trackingCount), "Apps disclosing tracking")
+      );
+    }
+
+    function renderCards(apps) {
+      elements.cards.replaceChildren();
+
+      if (!apps.length) {
+        const empty = document.createElement("div");
+        empty.className = "empty";
+        empty.textContent = "No apps match the selected filters.";
+        elements.cards.append(empty);
+        return;
+      }
+
+      const fragment = document.createDocumentFragment();
+
+      apps.forEach(app => {
+        const article = document.createElement("article");
+        article.className = "app-card";
+
+        const header = document.createElement("div");
+        header.className = "app-card-header";
+
+        const titleGroup = document.createElement("div");
+
+        const title = document.createElement("h3");
+        title.textContent = app.name;
+
+        const company = document.createElement("p");
+        company.className = "company";
+        company.textContent = app.company;
+
+        titleGroup.append(title, company);
+
+        const count = document.createElement("div");
+        count.className = "count";
+        count.title = `${app.categories.length} disclosed categories`;
+        count.textContent = String(app.categories.length);
+
+        header.append(titleGroup, count);
+
+        const tracking = document.createElement("span");
+        tracking.className = app.tracking ? "tracking" : "tracking no";
+        tracking.textContent = app.tracking
+          ? "Tracking disclosed"
+          : "No tracking disclosed";
+
+        const tags = document.createElement("div");
+        tags.className = "tags";
+
+        app.categories.forEach(category => {
+          const tag = document.createElement("span");
+          tag.className = "tag";
+          tag.textContent = category;
+          tags.append(tag);
+        });
+
+        const source = document.createElement("a");
+        source.className = "source-link";
+        source.href = app.source || "#sources";
+        source.target = "_blank";
+        source.rel = "noopener noreferrer";
+        source.textContent = "View App Store source →";
+
+        article.append(header, tracking, tags, source);
+        fragment.append(article);
+      });
+
+      elements.cards.append(fragment);
+    }
+
+    function renderSources() {
+      elements.appSources.replaceChildren();
+
+      const heading = document.createElement("h3");
+      heading.textContent = "App privacy-label pages";
+
+      const list = document.createElement("ol");
+
+      state.data.apps.forEach(app => {
+        const item = document.createElement("li");
+        const link = document.createElement("a");
+
+        link.href = app.source || "#";
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = `${app.name} — ${app.company}`;
+
+        item.append(link);
+        list.append(item);
+      });
+
+      elements.appSources.append(heading, list);
+    }
+
+    function populateCategoryOptions() {
+      const current = state.category;
+      elements.category.replaceChildren();
+
+      const all = document.createElement("option");
+      all.value = "";
+      all.textContent = "All categories";
+      elements.category.append(all);
+
+      allCategories().forEach(category => {
+        const option = document.createElement("option");
+        option.value = category;
+        option.textContent = category;
+        elements.category.append(option);
+      });
+
+      elements.category.value = allCategories().includes(current) ? current : "";
+    }
+
+    function render() {
+      const apps = filteredApps();
+      renderSummary(apps);
+      renderCards(apps);
+    }
+
+    function showDataNotice(message) {
+      elements.dataNotice.textContent = message;
+      elements.dataNotice.classList.add("show");
+    }
+
+    function initialize() {
+      populateCategoryOptions();
+      renderSources();
+      render();
+
+      elements.search.addEventListener("input", event => {
+        state.search = event.target.value;
+        render();
+      });
+
+      elements.category.addEventListener("change", event => {
+        state.category = event.target.value;
+        render();
+      });
+
+      elements.sort.addEventListener("change", event => {
+        state.sort = event.target.value;
+        render();
+      });
+    }
+
+    async function loadData() {
+      /*
+        fetch() is intentionally attempted only on http/https.
+        Browsers block local JSON fetches from file:// URLs.
+      */
+      if (location.protocol !== "http:" && location.protocol !== "https:") {
+        showDataNotice(
+          `Using built-in data (${EMBEDDED_DATA.updated}). This page is fully functional without a local server.`
+        );
+        return EMBEDDED_DATA;
+      }
+
+      try {
+        const response = await fetch("./data.json", { cache: "no-store" });
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+
+        const externalData = await response.json();
+
+        if (!validData(externalData)) {
+          throw new Error("data.json does not match the expected structure");
+        }
+
+        showDataNotice(
+          `Loaded data.json successfully${externalData.updated ? ` (${externalData.updated})` : ""}.`
+        );
+
+        return externalData;
+      } catch (error) {
+        console.warn("Could not load data.json; using embedded data instead.", error);
+
+        showDataNotice(
+          `data.json was unavailable, so the page is using built-in data (${EMBEDDED_DATA.updated}).`
+        );
+
+        return EMBEDDED_DATA;
+      }
+    }
+
+    loadData()
+      .then(data => {
+        state.data = data;
+        initialize();
+      })
+      .catch(error => {
+        console.error("Unexpected initialization error:", error);
+        state.data = EMBEDDED_DATA;
+        initialize();
+      });
+  </script>
+</body>
+</html>
