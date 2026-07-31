@@ -1,5 +1,6 @@
 
-const collectionBreadth = app => app.categories.length;
+const sensitive = new Set(["Location","Contacts","Financial Info","Sensitive Info","Search History","Browsing History"]);
+const score = app => app.categories.reduce((n,c)=>n+(sensitive.has(c)?2:1),0)+(app.tracking?3:0);
 let dataset;
 
 function render(){
@@ -11,7 +12,7 @@ function render(){
   document.querySelector("#summary").innerHTML=`<span class="pill">${rows.length} apps shown</span><span class="pill">${rows.filter(a=>a.tracking).length} disclose tracking</span><span class="pill">${new Set(rows.flatMap(a=>a.categories)).size} data categories</span>`;
   document.querySelector("#cards").innerHTML=rows.map(a=>`<article class="app-card">
     <div class="company">${a.company}</div><h3>${a.name}</h3>
-    <div class="score">${collectionBreadth(a)}</div> <small>data categories disclosed</small>
+    <div class="score">${score(a)}</div><small>educational exposure score</small>
     <p class="${a.tracking?'track':''}">${a.tracking?'Tracking disclosed':'No tracking category shown in this snapshot'}</p>
     <div class="tags">${a.categories.map(c=>`<span class="tag">${c}</span>`).join("")}</div>
     <a class="source-link" href="${a.source}">View app-store source ↗</a>
