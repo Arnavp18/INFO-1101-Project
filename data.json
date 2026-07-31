@@ -1,0 +1,169 @@
+{
+  "updated": "July 30, 2026",
+  "method_note": "Categories are a classroom research snapshot compiled from developer-reported Apple App Store privacy labels. Labels may change and do not independently prove how often data is collected.",
+  "apps": [
+    {
+      "name": "Facebook",
+      "company": "Meta",
+      "tracking": true,
+      "categories": [
+        "Contact Info",
+        "Identifiers",
+        "Location",
+        "Purchases",
+        "Financial Info",
+        "User Content",
+        "Usage Data",
+        "Diagnostics",
+        "Contacts",
+        "Sensitive Info"
+      ],
+      "source": "https://apps.apple.com/us/app/facebook/id284882215"
+    },
+    {
+      "name": "Instagram",
+      "company": "Meta",
+      "tracking": true,
+      "categories": [
+        "Contact Info",
+        "Identifiers",
+        "Location",
+        "Purchases",
+        "Financial Info",
+        "User Content",
+        "Usage Data",
+        "Diagnostics",
+        "Contacts",
+        "Sensitive Info"
+      ],
+      "source": "https://apps.apple.com/us/app/instagram/id389801252"
+    },
+    {
+      "name": "TikTok",
+      "company": "ByteDance",
+      "tracking": true,
+      "categories": [
+        "Contact Info",
+        "Identifiers",
+        "Location",
+        "Purchases",
+        "User Content",
+        "Usage Data",
+        "Diagnostics",
+        "Contacts"
+      ],
+      "source": "https://apps.apple.com/us/app/tiktok-videos-shop-live/id835599320"
+    },
+    {
+      "name": "Snapchat",
+      "company": "Snap",
+      "tracking": true,
+      "categories": [
+        "Contact Info",
+        "Identifiers",
+        "Location",
+        "Purchases",
+        "User Content",
+        "Usage Data",
+        "Diagnostics",
+        "Contacts"
+      ],
+      "source": "https://apps.apple.com/us/app/snapchat/id447188370"
+    },
+    {
+      "name": "Reddit",
+      "company": "Reddit",
+      "tracking": true,
+      "categories": [
+        "Contact Info",
+        "Identifiers",
+        "Location",
+        "Purchases",
+        "User Content",
+        "Usage Data",
+        "Diagnostics"
+      ],
+      "source": "https://apps.apple.com/us/app/reddit/id1064216828"
+    },
+    {
+      "name": "YouTube",
+      "company": "Google",
+      "tracking": true,
+      "categories": [
+        "Contact Info",
+        "Identifiers",
+        "Location",
+        "Purchases",
+        "User Content",
+        "Usage Data",
+        "Diagnostics",
+        "Search History"
+      ],
+      "source": "https://apps.apple.com/us/app/youtube-watch-listen-stream/id544007664"
+    },
+    {
+      "name": "LinkedIn",
+      "company": "Microsoft",
+      "tracking": true,
+      "categories": [
+        "Contact Info",
+        "Identifiers",
+        "Location",
+        "Purchases",
+        "User Content",
+        "Usage Data",
+        "Diagnostics",
+        "Contacts"
+      ],
+      "source": "https://apps.apple.com/us/app/linkedin-network-job-finder/id288429040"
+    },
+    {
+      "name": "Pinterest",
+      "company": "Pinterest",
+      "tracking": true,
+      "categories": [
+        "Contact Info",
+        "Identifiers",
+        "Location",
+        "Purchases",
+        "User Content",
+        "Usage Data",
+        "Diagnostics",
+        "Search History"
+      ],
+      "source": "https://apps.apple.com/us/app/pinterest/id429047995"
+    },
+    {
+      "name": "Discord",
+      "company": "Discord",
+      "tracking": false,
+      "categories": [
+        "Contact Info",
+        "Identifiers",
+        "Purchases",
+        "User Content",
+        "Usage Data",
+        "Diagnostics",
+        "Contacts"
+      ],
+      "source": "https://apps.apple.com/us/app/discord-talk-play-hang-out/id985746746"
+    },
+    {
+      "name": "X",
+      "company": "X Corp.",
+      "tracking": true,
+      "categories": [
+        "Contact Info",
+        "Identifiers",
+        "Location",
+        "Purchases",
+        "User Content",
+        "Usage Data",
+        "Diagnostics",
+        "Contacts",
+        "Browsing History"
+      ],
+      "source": "https://apps.apple.com/us/app/x/id333903271"
+    }
+  ]
+}

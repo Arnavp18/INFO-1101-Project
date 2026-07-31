@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>What Are the Drawbacks to Staying Connected?</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <nav><a href="#background">Background</a><a href="#compare">Compare</a><a href="#findings">Findings</a><a href="#sources">Sources</a></nav>
+  <div class="hero-inner">
+    <p class="eyebrow">FINAL RESEARCH PROJECT</p>
+    <h1>What Are the Drawbacks to Staying Connected?</h1>
+    <p class="lead">Every post, search, message, and tap can create data. How much do major social media apps say they collect?</p>
+    <a class="button" href="#compare">Explore the data</a>
+  </div>
+</header>
+
+<main>
+<section id="background" class="section">
+  <div class="section-heading"><span>01</span><h2>Background</h2></div>
+  <div class="grid two">
+    <article class="card">
+      <h3>What counts as personal data?</h3>
+      <p>Personal data can include obvious details—such as an email address, location, photos, and contacts—as well as less visible information such as device identifiers, search history, browsing activity, purchases, and app usage.</p>
+    </article>
+    <article class="card">
+      <h3>Why collect it?</h3>
+      <p>Platforms use data to operate features, recommend content, personalize advertising, measure engagement, prevent abuse, and improve products. The same data can also create privacy risks when collection is extensive, unclear, retained for long periods, or shared broadly.</p>
+    </article>
+  </div>
+  <aside class="quote">“Connected” does not only describe people. It also describes the links among accounts, devices, advertisers, data brokers, and behavioral profiles.</aside>
+</section>
+
+<section id="compare" class="section dark">
+  <div class="section-heading"><span>02</span><h2>Interactive Comparison</h2></div>
+  <p class="note">This is an educational snapshot of developer-reported Apple App Store privacy labels. It is not a network audit. Use the controls to filter and sort.</p>
+  <div class="controls">
+    <label>Search <input id="search" placeholder="App or company"></label>
+    <label>Category <select id="category"><option value="">All categories</option></select></label>
+    <label>Sort <select id="sort"><option value="score">Highest exposure score</option><option value="name">Alphabetical</option><option value="count">Most categories</option></select></label>
+  </div>
+  <div id="summary" class="summary"></div>
+  <div id="cards" class="app-grid"></div>
+  <div class="legend"><strong>Exposure score:</strong> a classroom comparison metric. Common categories count 1 point; location, contacts, financial information, sensitive information, and histories count 2. Tracking adds 3.</div>
+</section>
+
+<section id="findings" class="section">
+  <div class="section-heading"><span>03</span><h2>Findings & Reflection</h2></div>
+  <div class="grid three">
+    <article class="finding"><b>1</b><h3>Collection is broad</h3><p>Most platforms disclose multiple categories, not just the information users actively post.</p></article>
+    <article class="finding"><b>2</b><h3>Labels need context</h3><p>A label says data may be handled; it does not reveal frequency, retention, or every downstream use.</p></article>
+    <article class="finding"><b>3</b><h3>Privacy is a trade-off</h3><p>Convenience and personalization can be useful, but users should decide whether each permission is necessary.</p></article>
+  </div>
+  <div class="reflection">
+    <h3>My reflection</h3>
+    <p>The most surprising finding was how many categories extend beyond what a person intentionally posts. Identifiers, diagnostics, usage patterns, and location can reveal behavior even when a user shares very little publicly. I also learned that privacy labels are useful but incomplete because they are developer-reported and can change by region, age, and feature.</p>
+    <p>My conclusion is that the drawback to staying connected is not one single piece of data. It is the combination of many small signals into a detailed profile. Users can reduce exposure by reviewing permissions, turning off unnecessary location access, avoiding contact syncing when it is not needed, limiting ad tracking, and periodically deleting unused accounts.</p>
+  </div>
+</section>
+
+<section id="sources" class="section sources">
+  <div class="section-heading"><span>04</span><h2>Sources & Method</h2></div>
+  <p><strong>Method:</strong> I recorded broad data categories disclosed in the U.S. Apple App Store privacy labels for ten apps, then compared the number and sensitivity of categories. App-store disclosures may change and are not independently verified by Apple.</p>
+  <ul>
+    <li><a href="https://www.ftc.gov/reports/look-behind-screens-examining-data-practices-social-media-video-streaming-services">Federal Trade Commission — A Look Behind the Screens (2024)</a></li>
+    <li><a href="https://www.pewresearch.org/internet/2023/10/18/how-americans-view-data-privacy/">Pew Research Center — How Americans View Data Privacy (2023)</a></li>
+    <li><a href="https://www.apple.com/privacy/labels/">Apple — App Privacy Labels</a></li>
+    <li><a href="https://support.google.com/googleplay/android-developer/answer/10787469">Google Play — Data Safety guidance</a></li>
+  </ul>
+  <div id="appSources"></div>
+</section>
+</main>
+<footer>Built with Python, HTML, CSS, and JavaScript • Research snapshot updated July 30, 2026</footer>
+<script src="script.js"></script>
+</body></html>
